@@ -13,7 +13,7 @@ api = Api(app)
 
 
 # 'event' é a função que será decorada
-# 'login_required' é será o nome do decorador
+# 'login_required' será o nome do decorador
 def login_required(event):
     
     # O decorador 'wraps' preserva a função a ser decorada (sem ele o nome dela passaria a ser 'login')
@@ -27,7 +27,7 @@ def login_required(event):
         
         # Verifica se possui cabeçalho de autenticação e se as credenciais estão corretas
         if request.authorization and  \
-        request.authorization.username == USERNAME and\
+        request.authorization.username == USERNAME and \
         request.authorization.password == PASSWORD:
             return event(*args, **kwargs)
         
@@ -98,7 +98,7 @@ class Book(Resource):
         
         BOOKS[book_id] = book_info 
         
-        # Requisição bem sucedida com criação de novo recurso no servidor
+        # Requisição bem sucedida com a atualização do recurso no servidor
         return book_info, 201
     
     def _abort_book_does_not_exist(self, book_id):
